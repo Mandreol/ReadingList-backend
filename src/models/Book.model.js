@@ -9,7 +9,6 @@ const Book = sequelize.define('Book', {
   },
   author: {
     type: DataTypes.STRING,
-    allowNull: true,
   },
 
   imgUrl: {
@@ -26,19 +25,15 @@ const Book = sequelize.define('Book', {
   },
   initializationDate: {
     type: DataTypes.STRING,
-    allowNull: true,
   },
   finishDate: {
     type: DataTypes.STRING,
-    allowNull: true,
   },
   pagesRead: {
     type: DataTypes.STRING,
-    allowNull: true,
   },
   notes: {
     type: DataTypes.STRING,
-    allowNull: true,
   },
 });
 
