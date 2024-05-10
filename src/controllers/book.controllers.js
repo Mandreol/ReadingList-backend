@@ -1,20 +1,20 @@
 const catchError = require('../utils/catchError');
-const Libro = require('../models/Libro');
+const Book = require('../models/Book');
 
 const getAll = catchError(async (req, res) => {
-  const results = await Libro.findAll();
+  const results = await Book.findAll();
   return res.json(results);
 });
 
 const create = catchError(async (req, res) => {
-  const result = await Libro.create(req.body);
+  const result = await Book.create(req.body);
   return res.status(201).json(result);
 });
 
 const update = catchError(async (req, res) => {
   const { bookId } = req.params;
   const { titulo, autor } = req.body;
-  const book = await Libro.findByPk(bookId);
+  const book = await Book.findByPk(bookId);
   if (!book) {
     return res.status(404).json({ error: 'Book not found' });
   }
@@ -24,7 +24,7 @@ const update = catchError(async (req, res) => {
 
 const remove = catchError(async (req, res) => {
   const { bookId } = req.params;
-  const book = await Libro.findByPk(bookId);
+  const book = await Book.findByPk(bookId);
   if (!book) {
     return res.status(404).json({ error: 'Book not found' });
   }
