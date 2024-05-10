@@ -1,12 +1,12 @@
 const {
-  getAll,
-  create,
-  update,
-  remove,
-} = require('../controllers/book.controllers');
+  createNote,
+  getNotesByBookId,
+  updateNote,
+  deleteNote,
+} = require('../controllers/note.controllers');
 const express = require('express');
 
-const bookRouter = express.Router();
+const noteRouter = express.Router();
 
 bookRouter.route('/').get(getAll).post(create);
 bookRouter.route('/:id').put(update).delete(remove);
