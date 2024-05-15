@@ -7,6 +7,7 @@ const Note = sequelize.define('note', {
     allowNull: false,
   },
   date: { type: DataTypes.STRING, allowNull: false },
+  //bookId
 });
 
 module.exports = Note;

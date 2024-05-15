@@ -32,9 +32,6 @@ const Book = sequelize.define('Book', {
   pagesRead: {
     type: DataTypes.STRING,
   },
-  notes: {
-    type: DataTypes.STRING,
-  },
 });
 
 module.exports = Book;
