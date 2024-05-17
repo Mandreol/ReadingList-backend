@@ -1,13 +1,23 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../utils/connection');
-const Note = sequelize.define('note', {
-  id: { type: DataTypes.STRING, allowNull: false, primaryKey: true },
-  body: {
-    type: DataTypes.STRING,
+
+const Note = sequelize.define('Note', {
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
     allowNull: false,
   },
+  body: { type: DataTypes.STRING, allowNull: false },
   date: { type: DataTypes.STRING, allowNull: false },
-  //bookId
+  bookId: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    references: {
+      model: 'Books',
+      key: 'id',
+    },
+  },
 });
 
 module.exports = Note;

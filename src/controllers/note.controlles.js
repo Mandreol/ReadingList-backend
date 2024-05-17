@@ -3,23 +3,14 @@ const Note = require('../models/Note');
 const Book = require('../models/Book');
 
 const createNote = catchError(async (req, res) => {
-  const { bookId, content } = req.body;
+  const { bookId, content, date } = req.body;
   const book = await Book.findByPk(bookId);
   if (!book) {
     return res.status(404).json({ error: 'Book not found' });
   }
-  const newNote = await Note.create({ content });
+  const newNote = await Note.create({ content, date });
   await newNote.setLibro(book);
   return res.status(201).json({ note: newNote });
-});
-
-const getNotesByBookId = catchError(async (req, res) => {
-  const { bookId } = req.params;
-  const book = await Book.findByPk(bookId, { include: 'notas' });
-  if (!book) {
-    return res.status(404).json({ error: 'Book not found' });
-  }
-  return res.json({ notes: book.notas });
 });
 
 const updateNote = catchError(async (req, res) => {
