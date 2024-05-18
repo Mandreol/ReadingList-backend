@@ -1,5 +1,6 @@
 const catchError = require('../utils/catchError');
 const Book = require('../models/Book');
+const Note = require('../models/Note');
 
 const getAll = catchError(async (req, res) => {
   const results = await Book.findAll({

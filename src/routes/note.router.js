@@ -1,6 +1,5 @@
 const {
   createNote,
-  getNotesByBookId,
   updateNote,
   deleteNote,
 } = require('../controllers/note.controllers');
@@ -8,7 +7,7 @@ const express = require('express');
 
 const noteRouter = express.Router();
 
-bookRouter.route('/').get(getAll).post(create);
-bookRouter.route('/:id').put(update).delete(remove);
+bookRouter.route('/').post(createNote);
+bookRouter.route('/:id').put(updateNote).delete(deleteNote);
 
 module.exports = bookRouter;

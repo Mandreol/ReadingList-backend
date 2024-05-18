@@ -36,7 +36,6 @@ const deleteNote = catchError(async (req, res) => {
 
 module.exports = {
   createNote,
-  getNotesByBookId,
   updateNote,
   deleteNote,
 };

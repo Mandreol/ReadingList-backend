@@ -8,7 +8,7 @@ const Note = sequelize.define('Note', {
     primaryKey: true,
     allowNull: false,
   },
-  body: { type: DataTypes.STRING, allowNull: false },
+  content: { type: DataTypes.STRING, allowNull: false },
   date: { type: DataTypes.STRING, allowNull: false },
   bookId: {
     type: DataTypes.STRING,
