@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../utils/connection');
+const Book = require('./Book');
 
 const Note = sequelize.define('Note', {
   id: {
@@ -10,14 +11,17 @@ const Note = sequelize.define('Note', {
   },
   content: { type: DataTypes.STRING, allowNull: false },
   date: { type: DataTypes.STRING, allowNull: false },
-  BookId: {
+  bookId: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: 'Books',
       key: 'id',
     },
+    onDelete: 'CASCADE',
   },
 });
+
+// Definir la relación
 
 module.exports = Note;
