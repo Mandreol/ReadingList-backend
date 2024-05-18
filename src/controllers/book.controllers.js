@@ -4,7 +4,7 @@ const Note = require('../models/Note');
 
 const getAll = catchError(async (req, res) => {
   const results = await Book.findAll({
-    include: [{ model: Note }], // Incluye las notas asociadas
+    include: [{ model: Note }],
   });
   return res.json(results);
 });
@@ -16,12 +16,12 @@ const create = catchError(async (req, res) => {
 
 const update = catchError(async (req, res) => {
   const { bookId } = req.params;
-  const { pagesRead } = req.body;
+  const { pagesRead, state } = req.body;
   const book = await Book.findByPk(bookId);
   if (!book) {
     return res.status(404).json({ error: 'Book not found' });
   }
-  await book.update({ pagesRead });
+  await book.update({ pagesRead, state });
   return res.json({ book });
 });
 
