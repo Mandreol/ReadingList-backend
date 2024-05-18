@@ -3,8 +3,8 @@ const Note = require('../models/Note');
 const Book = require('../models/Book');
 
 const createNote = catchError(async (req, res) => {
-  const { bookId, content, date } = req.body;
-  const book = await Book.findByPk(bookId);
+  const { BookId, content, date } = req.body;
+  const book = await Book.findByPk(BookId);
   if (!book) {
     return res.status(404).json({ error: 'Book not found' });
   }
