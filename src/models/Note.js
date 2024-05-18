@@ -10,7 +10,7 @@ const Note = sequelize.define('Note', {
   },
   content: { type: DataTypes.STRING, allowNull: false },
   date: { type: DataTypes.STRING, allowNull: false },
-  bookId: {
+  BookId: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
