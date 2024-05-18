@@ -16,12 +16,24 @@ const create = catchError(async (req, res) => {
 
 const update = catchError(async (req, res) => {
   const { id } = req.params;
-  const { pagesRead, state } = req.body;
+  const {
+    pagesRead,
+    state,
+    recommendationDate,
+    initializationDate,
+    finishDate,
+  } = req.body;
   const book = await Book.findByPk(id);
   if (!book) {
     return res.status(404).json({ error: 'Book not found' });
   }
-  await book.update({ pagesRead, state });
+  await book.update({
+    pagesRead,
+    state,
+    recommendationDate,
+    initializationDate,
+    finishDate,
+  });
   return res.json({ book });
 });
 
