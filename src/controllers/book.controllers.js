@@ -15,9 +15,9 @@ const create = catchError(async (req, res) => {
 });
 
 const update = catchError(async (req, res) => {
-  const { bookId } = req.params;
+  const { id } = req.params;
   const { pagesRead, state } = req.body;
-  const book = await Book.findByPk(bookId);
+  const book = await Book.findByPk(id);
   if (!book) {
     return res.status(404).json({ error: 'Book not found' });
   }
@@ -26,8 +26,8 @@ const update = catchError(async (req, res) => {
 });
 
 const remove = catchError(async (req, res) => {
-  const { bookId } = req.params;
-  const book = await Book.findByPk(bookId);
+  const { id } = req.params;
+  const book = await Book.findByPk(id);
   if (!book) {
     return res.status(404).json({ error: 'Book not found' });
   }

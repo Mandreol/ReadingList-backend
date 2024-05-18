@@ -13,9 +13,9 @@ const createNote = catchError(async (req, res) => {
 });
 
 const updateNote = catchError(async (req, res) => {
-  const { noteId } = req.params;
+  const { id } = req.params;
   const { content } = req.body;
-  const note = await Note.findByPk(noteId);
+  const note = await Note.findByPk(id);
   if (!note) {
     return res.status(404).json({ error: 'Note not found' });
   }
@@ -24,8 +24,8 @@ const updateNote = catchError(async (req, res) => {
 });
 
 const deleteNote = catchError(async (req, res) => {
-  const { noteId } = req.params;
-  const note = await Note.findByPk(noteId);
+  const { id } = req.params;
+  const note = await Note.findByPk(id);
   if (!note) {
     return res.status(404).json({ error: 'Note not found' });
   }
