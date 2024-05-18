@@ -10,4 +10,4 @@ const noteRouter = express.Router();
 bookRouter.route('/').post(createNote);
 bookRouter.route('/:id').put(updateNote).delete(deleteNote);
 
-module.exports = bookRouter;
+module.exports = noteRouter;

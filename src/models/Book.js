@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../utils/connection');
 
 const Book = sequelize.define('Book', {
-  id: { type: DataTypes.STRING, allowNull: false, primaryKey: true },
+  id: { type: DataTypes.INTEGER, allowNull: false, primaryKey: true },
   title: {
     type: DataTypes.STRING,
     allowNull: false,
