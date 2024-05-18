@@ -7,7 +7,7 @@ const express = require('express');
 
 const noteRouter = express.Router();
 
-bookRouter.route('/').post(createNote);
-bookRouter.route('/:id').put(updateNote).delete(deleteNote);
+noteRouter.route('/').post(createNote);
+noteRouter.route('/:id').put(updateNote).delete(deleteNote);
 
 module.exports = noteRouter;
