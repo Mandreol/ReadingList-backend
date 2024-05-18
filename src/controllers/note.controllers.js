@@ -8,7 +8,7 @@ const createNote = catchError(async (req, res) => {
   if (!book) {
     return res.status(404).json({ error: 'Book not found' });
   }
-  const newNote = await Note.create({ content, date, bookId });
+  const newNote = await Note.create({ content, date, BookId });
   return res.status(201).json({ note: newNote });
 });
 
