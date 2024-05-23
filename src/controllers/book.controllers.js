@@ -10,8 +10,8 @@ const getAll = catchError(async (req, res) => {
 });
 
 const create = catchError(async (req, res) => {
-  const result = await Book.create(req.body);
-  return res.status(201).json(result);
+  await Book.create(req.body);
+  return getAll(req, res);
 });
 
 const update = catchError(async (req, res) => {
@@ -34,7 +34,7 @@ const update = catchError(async (req, res) => {
     initializationDate,
     finishDate,
   });
-  return res.json({ book });
+  return getAll(req, res);
 });
 
 const remove = catchError(async (req, res) => {
@@ -44,7 +44,7 @@ const remove = catchError(async (req, res) => {
     return res.status(404).json({ error: 'Book not found' });
   }
   await book.destroy();
-  return res.json({ message: 'Book has been successfully deleted' });
+  return getAll(req, res);
 });
 
 module.exports = {
